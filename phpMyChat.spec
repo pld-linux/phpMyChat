@@ -4,8 +4,8 @@ Name:		phpMyChat
 Version:	0.14.5
 Release:	0.1
 License:	GPL
-Group:		
-Source0: 	http://dl.sourceforge.net/phpmychat/%{name}-%{version}.zip	
+Group:		Applications/WWW
+Source0:	http://dl.sourceforge.net/phpmychat/%{name}-%{version}.zip	
 # Source0-md	86b961cba624a5d3ea5bebf52a90fec55
 URL:		http://sourceforge.net/projects/phpmychat/
 Requires:	php-mysql
@@ -34,18 +34,20 @@ moderatorskie, a wszystko to posiada wspracie dla 37 jêzyków.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_mychatdir}
-install chat_activity.php3 phpMyChat.php $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT%{_mychatdir} \
+	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-cp -af chat/*  $RPM_BUILD_ROOT%{_mychatdir}
+install chat_activity.php3 phpMyChat.php3 $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+
+cp -af chat/*				  $RPM_BUILD_ROOT%{_mychatdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc docs/*  readme.txt
-%{_examplesdir}/%{name}-%{version}/{chat_activity.php3,phpMyChat.php3}
+%doc docs/* readme.txt
+%{_examplesdir}/%{name}-%{version}/chat_activity.php3
 %dir %{_mychatdir}
 %{_mychatdir}/admin/
 %{_mychatdir}/config/
