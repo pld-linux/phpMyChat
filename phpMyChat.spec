@@ -6,7 +6,7 @@ Release:	0.1
 License:	GPL
 Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/phpmychat/%{name}-%{version}.zip	
-# Source0-md	86b961cba624a5d3ea5bebf52a90fec55
+# Source0-md5:	86b961cba624a5d3ea5bebf52a90fec5
 URL:		http://sourceforge.net/projects/phpmychat/
 Requires:	php-mysql
 Requires:	php-pcre
