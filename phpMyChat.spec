@@ -29,7 +29,7 @@ phpMyChat jest to prosty w instalacji i u¿yciu wielopokojowy chat
 oparty na PHP/DB. Aktualnie dostêpny dla MySQL, PostgreSQL i ODBC, a w
 trakcie s± ju¿ prace nad Oracle. Chat obs³ugiwany jest przed polecenia
 podobne do tych, które znamy z IRCa, dostêpne s± równie¿ opcje
-moderatorskie, a wszystko to posiada wspracie dla 37 jêzyków.
+moderatorskie, a wszystko to posiada wsparcie dla 37 jêzyków.
 
 %prep
 %setup -q -c %{name}-%{version}
