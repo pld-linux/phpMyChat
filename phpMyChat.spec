@@ -7,7 +7,7 @@ License:	GPL
 Group:		Applications/WWW
 Source0:	http://dl.sourceforge.net/phpmychat/%{name}-%{version}.zip	
 # Source0-md5:	86b961cba624a5d3ea5bebf52a90fec5
-Source1:        %{name}.conf
+Source1:	%{name}.conf
 URL:		http://sourceforge.net/projects/phpmychat/
 Requires:	php-mysql
 Requires:	php-pcre
@@ -16,7 +16,7 @@ BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_mychatdir	%{_datadir}/%{name}
-%define         _sysconfdir     /etc/%{name}
+%define		_sysconfdir	/etc/%{name}
 
 %description
 phpMyChat is an easy-to-install, easy-to-use multi-room PHP/DB chat.
@@ -38,12 +38,11 @@ moderatorskie, a wszystko to posiada wspracie dla 37 jêzyków.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_mychatdir} \
 	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version} \
-        $RPM_BUILD_ROOT{%{_sysconfdir},/etc/httpd}
-
+	$RPM_BUILD_ROOT{%{_sysconfdir},/etc/httpd}
 
 install chat_activity.php3 phpMyChat.php3 $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-cp -af chat/*				  $RPM_BUILD_ROOT%{_mychatdir}
+cp -af chat/* $RPM_BUILD_ROOT%{_mychatdir}
 rm -f $RPM_BUILD_ROOT%{_mychatdir}/config/*
 
 cp chat/config/* $RPM_BUILD_ROOT%{_sysconfdir}
@@ -54,35 +53,33 @@ ln -sf %{_sysconfdir}/style.css.php3 $RPM_BUILD_ROOT%{_mychatdir}/config/style.c
 
 install %{SOURCE1} $RPM_BUILD_ROOT/etc/httpd/%{name}.conf
 
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 if [ -f /etc/httpd/httpd.conf ] && ! grep -q "^Include.*%{name}.conf" /etc/httpd/httpd.conf; then
-        echo "Include /etc/httpd/%{name}.conf" >> /etc/httpd/httpd.conf
+	echo "Include /etc/httpd/%{name}.conf" >> /etc/httpd/httpd.conf
 elif [ -d /etc/httpd/httpd.conf ]; then
-        ln -sf /etc/httpd/%{name}.conf /etc/httpd/httpd.conf/99_%{name}.conf
+	ln -sf /etc/httpd/%{name}.conf /etc/httpd/httpd.conf/99_%{name}.conf
 fi
 if [ -f /var/lock/subsys/httpd ]; then
-        /usr/sbin/apachectl restart 1>&2
+	/usr/sbin/apachectl restart 1>&2
 fi
 
 %preun
 if [ "$1" = "0" ]; then
-        umask 027
-        if [ -d /etc/httpd/httpd.conf ]; then
-            rm -f /etc/httpd/httpd.conf/99_%{name}.conf
-        else
-                grep -v "^Include.*%{name}.conf" /etc/httpd/httpd.conf > \
-                        /etc/httpd/httpd.conf.tmp
-                mv -f /etc/httpd/httpd.conf.tmp /etc/httpd/httpd.conf
-                if [ -f /var/lock/subsys/httpd ]; then
-                    /usr/sbin/apachectl restart 1>&2
-                fi
-        fi
+	umask 027
+	if [ -d /etc/httpd/httpd.conf ]; then
+		rm -f /etc/httpd/httpd.conf/99_%{name}.conf
+	else
+		grep -v "^Include.*%{name}.conf" /etc/httpd/httpd.conf > \
+			/etc/httpd/httpd.conf.tmp
+		mv -f /etc/httpd/httpd.conf.tmp /etc/httpd/httpd.conf
+		if [ -f /var/lock/subsys/httpd ]; then
+			/usr/sbin/apachectl restart 1>&2
+		fi
+	fi
 fi
-
 
 %files
 %defattr(644,root,root,755)
