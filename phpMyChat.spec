@@ -11,9 +11,10 @@ URL:		http://sourceforge.net/projects/phpmychat/
 Requires:	php-mysql
 Requires:	php-pcre
 Requires:	webserver
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define _chatdir /home/services/httpd/html/chat
+%define		_mychatdir	/home/services/httpd/html/mychat
 
 %description
 phpMyChat is an easy-to-install, easy-to-use multi-room PHP/DB chat.
@@ -26,17 +27,17 @@ phpMyChat jest to prosty w instalacji i u¿yciu wielopokojowy chat
 oparty na PHP/DB. Aktualnie dostêpny dla MySQL, PostgreSQL i ODBC, a w
 trakcie s± ju¿ prace nad Oracle. Chat obs³ugiwany jest przed polecenia
 podobne do tych, które znamy z IRCa, dostêpne s± równie¿ opcje
-moderatorskie, a wszystko to posiada wspracie dla 37 jêzyków
+moderatorskie, a wszystko to posiada wspracie dla 37 jêzyków.
 
 %prep
 %setup -q -c %{name}-%{version}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_chatdir}
+install -d $RPM_BUILD_ROOT%{_mychatdir}
 install chat_activity.php3 phpMyChat.php $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-cp -af chat/*  $RPM_BUILD_ROOT%{_chatdir}
+cp -af chat/*  $RPM_BUILD_ROOT%{_mychatdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -45,13 +46,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc docs/*  readme.txt
 %{_examplesdir}/%{name}-%{version}/{chat_activity.php3,phpMyChat.php3}
-%dir %{_chatdir}
-%{_chatdir}/admin/
-%{_chatdir}/config/
-%{_chatdir}/images/
-%{_chatdir}/install/
-%{_chatdir}/lib/
-%{_chatdir}/localization/
-%{_chatdir}/*.php3
-%{_chatdir}/favicon*
-%{_chatdir}/link*
+%dir %{_mychatdir}
+%{_mychatdir}/admin/
+%{_mychatdir}/config/
+%{_mychatdir}/images/
+%{_mychatdir}/install/
+%{_mychatdir}/lib/
+%{_mychatdir}/localization/
+%{_mychatdir}/*.php3
+%{_mychatdir}/favicon*
+%{_mychatdir}/link*
