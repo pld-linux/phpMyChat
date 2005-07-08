@@ -9,6 +9,7 @@ Source0:	http://dl.sourceforge.net/phpmychat/%{name}-%{version}.zip
 # Source0-md5:	86b961cba624a5d3ea5bebf52a90fec5
 Source1:	%{name}.conf
 URL:		http://sourceforge.net/projects/phpmychat/
+BuildRequires:	unzip
 Requires:	php-mysql
 Requires:	php-pcre
 Requires:	webserver
@@ -32,7 +33,7 @@ podobne do tych, które znamy z IRCa, dostêpne s± równie¿ opcje
 moderatorskie, a wszystko to posiada wsparcie dla 37 jêzyków.
 
 %prep
-%setup -q -c %{name}-%{version}
+%setup -q -c
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -84,17 +85,18 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc docs/* readme.txt
+%dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/chat_activity.php3
 %dir %{_sysconfdir}
 %attr(640,root,http) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
 %config(noreplace) %verify(not size mtime md5) /etc/httpd/%{name}.conf
 %dir %{_mychatdir}
-%{_mychatdir}/admin/
-%{_mychatdir}/config/
-%{_mychatdir}/images/
-%{_mychatdir}/install/
-%{_mychatdir}/lib/
-%{_mychatdir}/localization/
+%{_mychatdir}/admin
+%{_mychatdir}/config
+%{_mychatdir}/images
+%{_mychatdir}/install
+%{_mychatdir}/lib
+%{_mychatdir}/localization
 %{_mychatdir}/*.php3
 %{_mychatdir}/favicon*
 %{_mychatdir}/link*
