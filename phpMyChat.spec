@@ -1,11 +1,11 @@
-Summary:	Easy-to-install, and easy-to-use multi-room PHP/DB chat.
+Summary:	Easy-to-install, and easy-to-use multi-room PHP/DB chat
 Summary(pl):	Prosty w instalacji i u¿yciu wielopokojowy chat oparty na PHP/DB
 Name:		phpMyChat
 Version:	0.14.5
 Release:	0.1
 License:	GPL
 Group:		Applications/WWW
-Source0:	http://dl.sourceforge.net/phpmychat/%{name}-%{version}.zip	
+Source0:	http://dl.sourceforge.net/phpmychat/%{name}-%{version}.zip
 # Source0-md5:	86b961cba624a5d3ea5bebf52a90fec5
 Source1:	%{name}.conf
 URL:		http://sourceforge.net/projects/phpmychat/
@@ -88,8 +88,8 @@ fi
 %dir %{_examplesdir}/%{name}-%{version}
 %{_examplesdir}/%{name}-%{version}/chat_activity.php3
 %dir %{_sysconfdir}
-%attr(640,root,http) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/*
-%config(noreplace) %verify(not size mtime md5) /etc/httpd/%{name}.conf
+%attr(640,root,http) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/*
+%config(noreplace) %verify(not md5 mtime size) /etc/httpd/%{name}.conf
 %dir %{_mychatdir}
 %{_mychatdir}/admin
 %{_mychatdir}/config
