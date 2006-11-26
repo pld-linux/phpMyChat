@@ -1,3 +1,5 @@
+# TODO
+# - webapps
 Summary:	Easy-to-install, and easy-to-use multi-room PHP/DB chat
 Summary(pl):	Prosty w instalacji i u¿yciu wielopokojowy chat oparty na PHP/DB
 Name:		phpMyChat
@@ -10,8 +12,8 @@ Source0:	http://dl.sourceforge.net/phpmychat/%{name}-%{version}.zip
 Source1:	%{name}.conf
 URL:		http://sourceforge.net/projects/phpmychat/
 BuildRequires:	unzip
-Requires:	php-mysql
-Requires:	php-pcre
+Requires:	php(mysql)
+Requires:	php(pcre)
 Requires:	webserver
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
