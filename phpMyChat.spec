@@ -1,7 +1,7 @@
 # TODO
 # - webapps
 Summary:	Easy-to-install, and easy-to-use multi-room PHP/DB chat
-Summary(pl):	Prosty w instalacji i u¿yciu wielopokojowy chat oparty na PHP/DB
+Summary(pl.UTF-8):   Prosty w instalacji i uÅ¼yciu wielopokojowy chat oparty na PHP/DB
 Name:		phpMyChat
 Version:	0.14.5
 Release:	0.1
@@ -27,12 +27,12 @@ It is currently available for MySQL, PostgreSQL, and ODBC, and the
 work on Oracle is in progress. It supports IRC-like commands,
 moderators, and is available with 37 languages.
 
-%description -l pl
-phpMyChat jest to prosty w instalacji i u¿yciu wielopokojowy chat
-oparty na PHP/DB. Aktualnie dostêpny dla MySQL, PostgreSQL i ODBC, a w
-trakcie s± ju¿ prace nad Oracle. Chat obs³ugiwany jest przed polecenia
-podobne do tych, które znamy z IRCa, dostêpne s± równie¿ opcje
-moderatorskie, a wszystko to posiada wsparcie dla 37 jêzyków.
+%description -l pl.UTF-8
+phpMyChat jest to prosty w instalacji i uÅ¼yciu wielopokojowy chat
+oparty na PHP/DB. Aktualnie dostÄ™pny dla MySQL, PostgreSQL i ODBC, a w
+trakcie sÄ… juÅ¼ prace nad Oracle. Chat obsÅ‚ugiwany jest przed polecenia
+podobne do tych, ktÃ³re znamy z IRCa, dostÄ™pne sÄ… rÃ³wnieÅ¼ opcje
+moderatorskie, a wszystko to posiada wsparcie dla 37 jÄ™zykÃ³w.
 
 %prep
 %setup -q -c
