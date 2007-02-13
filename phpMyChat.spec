@@ -1,7 +1,7 @@
 # TODO
 # - webapps
 Summary:	Easy-to-install, and easy-to-use multi-room PHP/DB chat
-Summary(pl.UTF-8):   Prosty w instalacji i użyciu wielopokojowy chat oparty na PHP/DB
+Summary(pl.UTF-8):	Prosty w instalacji i użyciu wielopokojowy chat oparty na PHP/DB
 Name:		phpMyChat
 Version:	0.14.5
 Release:	0.1
